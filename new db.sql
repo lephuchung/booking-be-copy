@@ -1,6 +1,6 @@
-CREATE DATABASE IF NOT EXISTS MovieTheater;
+CREATE DATABASE IF NOT EXISTS bqopblkv36tumw4iiawc;
 
-USE MovieTheater;
+USE bqopblkv36tumw4iiawc;
 
 CREATE TABLE Theaters (
     TheaterId INT PRIMARY KEY AUTO_INCREMENT,
