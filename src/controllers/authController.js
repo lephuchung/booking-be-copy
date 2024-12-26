@@ -99,12 +99,12 @@ exports.signin = async (req, res) => {
         const accessToken = jwt.sign(
             { userId: user.UserId, role: user.Role },
             process.env.JWT_SECRET,
-            { expiresIn: process.env.JWT_EXPIRATION }
+            { expiresIn: "2h" }
         );
         const refreshToken = jwt.sign(
             { userId: user.UserId },
             process.env.JWT_SECRET,
-            { expiresIn: process.env.JWT_REFRESH_EXPIRATION }
+            { expiresIn: "1h" }
         );
         res.json({ accessToken, refreshToken, user });
     });
@@ -151,13 +151,13 @@ exports.adminSignin = async (req, res) => {
         const accessToken = jwt.sign(
             { userId: user.UserId, role: user.Role },
             process.env.JWT_SECRET,
-            { expiresIn: process.env.JWT_EXPIRATION }
+            { expiresIn: "2h" }
         );
 
         const refreshToken = jwt.sign(
             { userId: user.UserId },
             process.env.JWT_SECRET,
-            { expiresIn: process.env.JWT_REFRESH_EXPIRATION }
+            { expiresIn: "1h" }
         );
 
         res.json({ accessToken, refreshToken, user });
@@ -195,7 +195,7 @@ exports.refreshAccessToken = (req, res) => {
         const accessToken = jwt.sign(
             { userId: decoded.userId, role: decoded.role },
             process.env.JWT_SECRET,
-            { expiresIn: process.env.JWT_EXPIRATION }
+            { expiresIn: "2h" }
         );
 
         res.json({ accessToken });
